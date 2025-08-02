@@ -1,0 +1,12 @@
+Question,MC_Answer,Student_Explanation,Predicted_Category,Predicted_Misconception,Model_Used
+,,,False_Neither,NA,best_model_fold7.pt
+"What fraction of the shape is not shaded? Give your answer in its simplest form. [Image: A triangle split into 9 equal smaller triangles. 6 of them are shaded.]
+",\( \frac{1}{3} \),1 / 3 because 6 over 9 is 2 thirds and 1 third is not shaded.,True_Correct,NA,best_model_fold7.pt
+"What fraction of the shape is not shaded? Give your answer in its simplest form. [Image: A triangle split into 9 equal smaller triangles. 6 of them are shaded.]
+","\( \frac{1}{3} \)
+","0ne third is equal to tree nineth
+.",True_Correct,NA,map_2025_best_model_fold7.pt
+"What fraction of the shape is not shaded? Give your answer in its simplest form. [Image: A triangle split into 9 equal smaller triangles. 6 of them are shaded.]
+","\( \frac{1}{3} \)
+",0ne third is equal to tree nineth.,True_Correct,NA,map_2025_best_model_fold7.pt
+What fraction of the shape is not shaded? Give your answer in its simplest form. [Image: A triangle split into 9 equal smaller triangles. 6 of them are shaded.],\( \frac{1}{3} \),0ne third is equal to tree nineth.,True_Correct,NA,map_2025_best_model_fold7.pt
