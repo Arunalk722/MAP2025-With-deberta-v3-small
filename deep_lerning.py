@@ -1,6 +1,6 @@
-# ==========================
+ 
 # Setup for Kaggle
-# ==========================
+ 
 
 import os
 import torch
@@ -15,9 +15,9 @@ from sklearn.metrics import f1_score, classification_report
 from transformers import DebertaV2Model, DebertaV2Tokenizer
 
 
-# ==========================
+ 
 # Configuration
-# ==========================
+ 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 MAX_LENGTH = 256
 MODELS_DIR = './models/'
@@ -26,9 +26,9 @@ MISC_ENCODER_PATH = os.path.join(MODELS_DIR, 'misc_encoder.pkl')
 FEATURE_COLS_PATH = os.path.join(MODELS_DIR, 'feature_cols.pkl')
 TRAIN_DATA_PATH = './dataset/train.csv'
 
-# ==========================
+ 
 # Feature Extraction
-# ==========================
+ 
 def extract_math_features(text):
     if not isinstance(text, str):
         return {
@@ -64,9 +64,9 @@ def create_features(df):
     )
     return df
 
-# ==========================
+ 
 # Deep Learning Model
-# ==========================
+ 
 class MathMisconceptionModel(nn.Module):
     def __init__(self, n_categories, n_misconceptions, feature_dim):
         super().__init__()
@@ -104,9 +104,9 @@ class MathMisconceptionModel(nn.Module):
         combined = torch.cat([text_emb, feat_emb], dim=1)
         return self.category_head(combined), self.misconception_head(combined)
 
-# ==========================
+ 
 # Evaluation Logic
-# ==========================
+ 
 def evaluate_model(model_path, processed_df, features_scaled, cat_enc, misc_enc):
     print(f"\n--- Evaluating model: {model_path} ---")
 
@@ -154,7 +154,7 @@ def evaluate_model(model_path, processed_df, features_scaled, cat_enc, misc_enc)
 
 # =========================
 # Main Execution
-# ==========================
+ 
 def main():
     print("Loading shared encoders, data, and features...")
     with open(CAT_ENCODER_PATH, 'rb') as f:

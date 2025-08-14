@@ -9,9 +9,9 @@ import gradio as gr
 from transformers import DebertaV2Model, DebertaV2Tokenizer
 from sklearn.preprocessing import StandardScaler
 
-# ==========================
+ 
 # Configuration
-# ==========================
+ 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 MAX_LENGTH = 256
 MODELS_DIR = './models/'
@@ -21,9 +21,9 @@ FEATURE_COLS_PATH = os.path.join(MODELS_DIR, 'feature_cols.pkl')
 TRAIN_DATA_PATH = './dataset/train.csv'
 DEFAULT_MODEL = 'map_2025_best_model_fold7.pt'
 
-# ==========================
+ 
 # Feature Extraction (from training script)
-# ==========================
+ 
 def extract_math_features(text):
     if not isinstance(text, str):
         return {
@@ -59,9 +59,9 @@ def create_features(df):
     )
     return df
 
-# ==========================
+ 
 # Deep Learning Model (from training script)
-# ==========================
+ 
 class MathMisconceptionModel(nn.Module):
     def __init__(self, n_categories, n_misconceptions, feature_dim):
         super().__init__()
@@ -99,9 +99,9 @@ class MathMisconceptionModel(nn.Module):
         combined = torch.cat([text_emb, feat_emb], dim=1)
         return self.category_head(combined), self.misconception_head(combined)
 
-# ==========================
+ 
 # Load Resources
-# ==========================
+ 
 try:
     with open(CAT_ENCODER_PATH, 'rb') as f:
         cat_enc = pickle.load(f)
@@ -123,9 +123,9 @@ except FileNotFoundError as e:
     print(f"Error loading resources: {e}")
     exit()
 
-# ==========================
+ 
 # Prediction Logic
-# ==========================
+ 
 def predict(model_name, question, mc_answer, explanation, export_csv):
     model_path = os.path.join(MODELS_DIR, model_name)
     if not os.path.exists(model_path):
@@ -189,9 +189,9 @@ def predict(model_name, question, mc_answer, explanation, export_csv):
 
     return result_text, csv_path
 
-# ==========================
+ 
 # Gradio UI
-# ==========================
+ 
 model_files = [f for f in os.listdir(MODELS_DIR) if f.endswith('.pt')]
 
 iface = gr.Interface(
