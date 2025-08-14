@@ -108,8 +108,6 @@ You can try the model directly in your browser via Hugging Face Spaces:
 *if you need to help*\
 feel fee to contact me
 
-![TiredGroggyGIF](https://github.com/user-attachments/assets/b17bd2d8-1e65-49a4-b8c0-9a0e395ad989) \
-
 📩 arunalk722@hotmail.com
 
 
